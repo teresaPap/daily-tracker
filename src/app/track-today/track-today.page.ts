@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 @Component({
 	selector: 'app-track-today',
@@ -10,7 +11,7 @@ export class TrackTodayPage implements OnInit, OnDestroy {
 	public todaysMood: string;
 	public todaysDate: string;
 
-	constructor() { }
+	constructor( private storage: Storage ) { }
 
 	ngOnInit() {
 		const today = new Date();
@@ -20,6 +21,7 @@ export class TrackTodayPage implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		console.log('on destroy: Mood today is', this.todaysMood);
 		//TODO: Store today's mood in ionic storage
+		this.storage.set(this.todaysDate, this.todaysMood);
 	}
 
 	public onMoodChanged(e) {
