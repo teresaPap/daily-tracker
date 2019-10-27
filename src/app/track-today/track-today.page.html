@@ -1,5 +1,5 @@
 <ion-header>
-	<ion-toolbar color="secondary">
+	<ion-toolbar color="primary">
 		<ion-buttons slot="start">
 			<ion-back-button></ion-back-button>
 		</ion-buttons>
@@ -8,35 +8,35 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" color="light">
 
-	<ion-list>
+	<ion-list class="ion-no-padding">
 		<ion-radio-group name="mood" (ionChange)="onMoodChanged($event)" allowEmptySelection="true">
-			<ion-item class="ion-activatable">
+			<ion-item color="light" class="ion-activatable">
 				<ion-radio slot="start" name="mood" value="5"></ion-radio>
 				<ion-label>Awsome :D</ion-label>
 				<ion-ripple-effect></ion-ripple-effect>
 			</ion-item>
 
-			<ion-item class="ion-activatable">
+			<ion-item color="light" class="ion-activatable">
 				<ion-radio slot="start" name="mood" value="4"></ion-radio>
 				<ion-label>Nice ^.^</ion-label>
 				<ion-ripple-effect></ion-ripple-effect>
 			</ion-item>
 
-			<ion-item class="ion-activatable">
+			<ion-item color="light" class="ion-activatable">
 				<ion-radio slot="start" name="mood" value="3"></ion-radio>
 				<ion-label>Okey . </ion-label>
 				<ion-ripple-effect></ion-ripple-effect>
 			</ion-item>
 
-			<ion-item expand="block" class="ion-activatable">
+			<ion-item color="light" class="ion-activatable">
 				<ion-radio slot="start" name="mood" value="2"></ion-radio>
 				<ion-label>Meh :/ </ion-label>
 				<ion-ripple-effect></ion-ripple-effect>
 			</ion-item>
 
-			<ion-item expand="block" class="ion-activatable">
+			<ion-item color="light" class="ion-activatable">
 				<ion-radio slot="start" name="mood" value="1"></ion-radio>
 				<ion-label>Kill me :'( </ion-label>
 				<ion-ripple-effect></ion-ripple-effect>
