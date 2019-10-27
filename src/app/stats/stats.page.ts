@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { AlertController } from '@ionic/angular';
-
-interface IDayStat {
-	date: string;
-	mood: string;
-};
+import { FileCreatorService } from '../services/file-creator.service';
+import { IDayStat } from '../interfaces/IDayStat';
 
 @Component({
 	selector: 'app-stats',
@@ -17,8 +14,9 @@ export class StatsPage implements OnInit {
 	public days: IDayStat[] = [];
 	
 	constructor(
-		private storage: Storage,
-		public alertCtrl: AlertController) { }
+		public alertCtrl: AlertController,
+		public fileCtrl: FileCreatorService,
+		private storage: Storage ) { }
 
 	ngOnInit(): void {
 		this.loadStoredStats(); 
@@ -43,7 +41,18 @@ export class StatsPage implements OnInit {
 	}
 
 	private saveFile() {
-		// TODO: save this.days in a file in the device
+		this.fileCtrl.createStatFile(this.days)
+			.then( res => console.log(res))
+			.catch( error => this.displayError(error) );
+	}
+
+	private async displayError(message): Promise<void> {
+		const alert = await this.alertCtrl.create({
+			header: 'An Error Has Occured',
+			message: message,
+			buttons: ['Ok']
+		});
+		return await alert.present();
 	}
 
 	private loadStoredStats(): void {
