@@ -4,16 +4,19 @@
 			<ion-back-button></ion-back-button>
 		</ion-buttons>
 		<ion-title>Happiness Over Time</ion-title>
+		<ion-buttons slot="end">
+			<ion-button (click)="onDownload()">
+				<ion-icon name="download"></ion-icon>
+			</ion-button>
+		</ion-buttons>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding" color="light">
-
 	<ion-list class="ion-no-padding">
 		<ion-item *ngFor="let day of days" color="light">
 			<ion-label>{{day.date}}</ion-label>
 			<ion-note slot="end">{{day.mood}}</ion-note>
 		</ion-item>
 	</ion-list>
-
 </ion-content>
