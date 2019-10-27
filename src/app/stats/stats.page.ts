@@ -28,12 +28,12 @@ export class StatsPage implements OnInit {
 			message: 'This action will save all your statistics to your device.',
 			buttons: [
 				{
-					text: 'Save',
-					handler: () => this.saveFile()
-				},
-				{
 					text: 'Cancel',
 					role: 'cancel'
+				},
+				{
+					text: 'Save',
+					handler: () => this.saveFile()
 				}
 			]
 		});
