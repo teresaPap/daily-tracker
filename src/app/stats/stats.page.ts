@@ -13,19 +13,13 @@ export class StatsPage implements OnInit {
 
 	ngOnInit() {
 		this.storage.keys().then(
-			res => {
-				console.log(res);
-				res.forEach( date => {
-					if (this.isDate(date)) 
-						this.storage.get(date).then(
-							happinessValue => {
-								console.log( date, happinessValue )
-								this.days.push({date: date, mood: happinessValue});
-							}
-						);
+			storedKeys => 
+				storedKeys.forEach( key => {
+					if (this.isDate(key)) 
+						this.storage.get(key).then( happinessValue => 
+							this.days.push({date: key, mood: happinessValue}));
 				})
-			}
-		)
+		);
 	}
 
 	private isDate(date: string): boolean {

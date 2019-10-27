@@ -13,18 +13,16 @@ export class TrackTodayPage implements OnInit, OnDestroy {
 
 	constructor( private storage: Storage ) { }
 
-	ngOnInit() {
+	ngOnInit(): void {
 		const today = new Date();
 		this.todaysDate = today.toLocaleDateString(); 
 	}
 
-	ngOnDestroy() {
-		console.log('on destroy: Mood today is', this.todaysMood);
-		//TODO: Store today's mood in ionic storage
+	ngOnDestroy(): void {
 		this.storage.set(this.todaysDate, this.todaysMood);
 	}
 
-	public onMoodChanged(e) {
+	public onMoodChanged(e): void {
 		this.todaysMood = e.detail.value;
 	}
 
