@@ -9,10 +9,10 @@
 
 <ion-content class="ion-padding" color="light">
 
-	<ion-list>
-		<ion-item *ngFor="let day of days">
+	<ion-list class="ion-no-padding">
+		<ion-item *ngFor="let day of days" color="light">
 			<ion-label>{{day.date}}</ion-label>
-			<ion-note>{{day.mood}}</ion-note>
+			<ion-note slot="end">{{day.mood}}</ion-note>
 		</ion-item>
 	</ion-list>
 
